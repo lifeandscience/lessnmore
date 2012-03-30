@@ -1,16 +1,16 @@
 <?php
 
 // LOGIN
-define('USERNAME',	'admin');
-define('PASSWORD',	'blarg');
+define('USERNAME',	'lifeandscience');
+define('PASSWORD',	'1946ncmls!!');
 
 // DATABASE
-define('DB_NAME', 		'lessn');
-define('DB_USERNAME', 	'lessn');
-define('DB_PASSWORD', 	'pass');
+define('DB_NAME', 		'lessnmore');
+define('DB_USERNAME', 	'lessnmore');
+define('DB_PASSWORD', 	'qQMBrWwU3zbQ4T9c');
 define('DB_PREFIX', 	'lessn_'); // Lessn More can share a database by prefixing table names
 define('DB_DRIVER',		'mysql'); // mysql, pgsql, sqlite (sqlite not fully tested)
-define('DB_SERVER', 	'localhost'); // You may able to leave as-is
+define('DB_SERVER', 	'db1.lifeandscience.org'); // You may able to leave as-is
 
 // Enable statistics?
 define('RECORD_URL_STATS', true);
@@ -27,7 +27,7 @@ define('API_SALT',		'XqO)-O4K2595JMEOQ');
 // 'smart'        - Like the original Lessn, but excludes homoglyphs.
 //                - [0-9a-z] except [o0l1]
 // Best practices are documented at <http://ajh.us/k#service-homoglyphs>
-define('AUTO_SLUG_METHOD', 'base36'); //CHANGE to a *smart method!
+define('AUTO_SLUG_METHOD', 'mixed-smart'); //CHANGE to a *smart method!
 
 // String with any characters you would like to manually exclude from future 
 // auto-generated URL slugs. false if not.
@@ -46,9 +46,9 @@ define('ALLOW_HOMOGLYPHS_IN_CUSTOM_URLS', true); //true only supported option at
 
 
 // URL to hit if someone visits your site without a short url, set to null for just a blank page
-define('HOMEPAGE_URL', NULL); //e.g. 'http://example.com'
+define('HOMEPAGE_URL', 'http://www.ncmls.org'); //e.g. 'http://example.com'
 // If an slug is not found occurns, e.g. http://doma.in/this-slug-doesn't-exist
-define('ERROR_404_URL', NULL); //e.g. 'http://example.com/404'
+define('ERROR_404_URL', 'http://www.ncmls.org'.$_SERVER['REQUEST_URI']); //e.g. 'http://example.com/404'
 // If an slug was deleted (marked 'gone')
 define('GONE_410_URL', NULL); //e.g. 'http://example.com/gone'
 
