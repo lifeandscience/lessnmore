@@ -1,23 +1,6 @@
 <?php
 
-// LOGIN
-define('USERNAME',	'lifeandscience');
-define('PASSWORD',	'1946ncmls!!');
-
-// DATABASE
-define('DB_NAME', 		'lessnmore');
-define('DB_USERNAME', 	'lessnmore');
-define('DB_PASSWORD', 	'qQMBrWwU3zbQ4T9c');
-define('DB_PREFIX', 	'lessn_'); // Lessn More can share a database by prefixing table names
-define('DB_DRIVER',		'mysql'); // mysql, pgsql, sqlite (sqlite not fully tested)
-define('DB_SERVER', 	'db1.lifeandscience.org'); // You may able to leave as-is
-
-// Enable statistics?
-define('RECORD_URL_STATS', true);
-
-define('COOKIE_SALT', 	'1a5al-sSXqO[]P83Rfoo');
-define('API_SALT',		'XqO)-O4K2595JMEOQ');
-
+include_once('/srv/www/ncmls.org/lessn.config.php');
 
 // How should short URL slugs be generated? 
 // 'base36'       - Used by the original Lessn. [0-9a-z]
