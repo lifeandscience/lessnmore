@@ -1,7 +1,74 @@
 <IfModule mod_rewrite.c>
-	RewriteEngine	on
-	RewriteBase /
-	RewriteCond		%{REQUEST_FILENAME}		!-d
-	RewriteCond		%{REQUEST_FILENAME}		!-f
-	RewriteRule		(.*) index.php?token=$1	[QSA,L]
+  RewriteEngine on
+
+  RewriteCond %{HTTP_HOST} ^status\.lifeandscience\.org$ [NC]
+  RewriteRule ^(.*)$ http://www.ncmls.org/status [L,R=301]
+
+  RewriteCond %{HTTP_HOST} ^ncmls\.org [NC]
+  RewriteRule (.*) index.php?token=$1	[QSA,L]
+#  RewriteRule (.*) http://www.ncmls.org/$1 [R=301,L]
+
+  RewriteCond %{HTTP_HOST} lifeandscience\.org [NC]
+  RewriteRule (.*) http://www.ncmls.org/$1 [R=301,L]
+
+  RewriteRule ^learn-about/dodgejournal http://blogs.ncmls.org/greg-dodge/ [L]
+  RewriteRule ^learn-about/dodgejournal_5_1_08 http://blogs.ncmls.org/greg-dodge/2008/05/15/may-flowers/ [L]
+  RewriteRule ^learn-about/dodgejournal_5_15_08 http://blogs.ncmls.org/greg-dodge/2008/05/31/coreopsis-and-a-treat-for-the-birds/ [L]
+  RewriteRule ^learn-about/dodgejournal_6_1_08 http://blogs.ncmls.org/greg-dodge/2008/06/15/an-early-start-for-summer-flowers/ [L]
+  RewriteRule ^learn-about/dodgejournal_6_16_08 http://blogs.ncmls.org/greg-dodge/2008/06/30/rudbeckia-a-mint-and-hitch-hiking-seeds/ [L]
+  RewriteRule ^learn-about/dodgejournal_7_1_08 http://blogs.ncmls.org/greg-dodge/2008/07/15/maypops/ [L]
+  RewriteRule ^learn-about/dodgejournal_7_16_08 http://blogs.ncmls.org/greg-dodge/2008/07/31/pretty-flowers-and-weeds/ [L]
+  RewriteRule ^learn-about/dodgejournal_8_1_08 http://blogs.ncmls.org/greg-dodge/2008/08/15/two-late-bloomers/ [L]
+  RewriteRule ^learn-about/dodgejournal_8_16_08 learn-about/dodgejournal_8_16_08 [L]
+  RewriteRule ^learn-about/dodgejournal_9_1_08 http://blogs.ncmls.org/greg-dodge/2008/09/15/fall-fruit-nuts-and-flowers/ [L]
+  RewriteRule ^learn-about/dodgejournal_9_16_08 http://blogs.ncmls.org/greg-dodge/2008/09/30/mistflower-and-horsemint/ [L]
+  RewriteRule ^learn-about/dodgejournal_10_1_08 http://blogs.ncmls.org/greg-dodge/2008/10/15/288/ [L]
+  RewriteRule ^learn-about/dodgejournal_10_16_08 http://blogs.ncmls.org/greg-dodge/2008/10/31/278/ [L]
+  RewriteRule ^learn-about/dodgejournal_11_1_08 http://blogs.ncmls.org/greg-dodge/2008/11/15/270/ [L]
+  RewriteRule ^learn-about/dodgejournal_11_16_08 http://blogs.ncmls.org/greg-dodge/2008/11/30/261/ [L]
+  RewriteRule ^learn-about/dodgejournal_12_1_08 http://blogs.ncmls.org/greg-dodge/2008/12/15/gum-balls-and-mistletoe/ [L]
+  RewriteRule ^learn-about/dodgejournal_12_16_08 http://blogs.ncmls.org/greg-dodge/2008/12/31/flora-year-in-review/ [L]
+  RewriteRule ^learn-about/dodgejournal_01_1_09 http://blogs.ncmls.org/greg-dodge/2009/01/15/232/ [L]
+  RewriteRule ^learn-about/dodgejournal_01_16_09 http://blogs.ncmls.org/greg-dodge/2009/01/31/225/ [L]
+  RewriteRule ^learn-about/dodgejournal_02_1_09 http://blogs.ncmls.org/greg-dodge/2009/02/15/early-bloomers/ [L]
+  RewriteRule ^learn-about/dodgejournal_02_16_09 http://blogs.ncmls.org/greg-dodge/2009/02/28/first-flowers-of-spring/ [L]
+  RewriteRule ^learn-about/dodgejournal_03_1_09 http://blogs.ncmls.org/greg-dodge/2009/03/15/full-speed-ahead/ [L]
+  RewriteRule ^learn-about/dodgejournal_03_16_09 http://blogs.ncmls.org/greg-dodge/2009/03/31/redbud-and-a-pansy/ [L]
+  RewriteRule ^learn-about/dodgejournal_04_1_09 http://blogs.ncmls.org/greg-dodge/2009/04/15/conspicuous-and-not-so-conspicuous-bloomers/ [L]
+  RewriteRule ^learn-about/dodgejournal_04_16_09 http://blogs.ncmls.org/greg-dodge/2009/04/30/a-few-flowers-and-a-photo-quiz/ [L]
+  RewriteRule ^learn-about/dodgejournal_05_1_09 http://blogs.ncmls.org/greg-dodge/2009/05/15/willow-seeds-and-sweet-treats/ [L]
+  RewriteRule ^learn-about/dodgejournal_05_16_09 http://blogs.ncmls.org/greg-dodge/2009/05/31/elderberry-and-royal-lace/ [L]
+  RewriteRule ^learn-about/dodgejournal_06_1_09 http://blogs.ncmls.org/greg-dodge/2009/06/15/early-june-color/ [L]
+  RewriteRule ^learn-about/dodgejournal_06_16_09 http://blogs.ncmls.org/greg-dodge/2009/06/30/end-of-june-bloomers/ [L]
+  RewriteRule ^learn-about/dodgejournal_07_1_09 http://blogs.ncmls.org/greg-dodge/2009/07/15/summer-mode/ [L]
+  RewriteRule ^learn-about/dodgejournal_07_16_09 http://blogs.ncmls.org/greg-dodge/2009/07/31/treefrogs-yes-but-no-snakes/ [L]
+
+  RewriteRule ^butterflygardens$ files/summerpavilionhandout.pdf [L]
+
+  RewriteRule ^favicon.gif$ themes/ncmls/images/mlsbflygray_orange.png
+  RewriteRule ^favicon.ico$ themes/ncmls/images/mlsbflygray_orange.png
+
+#  RewriteCond %{REQUEST_URI} !^/tango
+  RewriteCond %{REQUEST_URI} !^/flickr.php
+#  RewriteCond %{REQUEST_URI} !^/info.php
+  RewriteCond %{REQUEST_URI} !^/svn
+#  RewriteCond %{REQUEST_URI} !^/devel
+  RewriteCond %{REQUEST_URI} !^/frontDevel
+  RewriteCond %{REQUEST_URI} !^/picmenuDevel
+  RewriteCond %{REQUEST_URI} !^/redirectTest
+#  RewriteCond %{REQUEST_URI} !^/ncmls5.5
+#  RewriteCond %{REQUEST_URI} !^/ncmls5.21
+#  RewriteCond %{REQUEST_URI} !^/ncmls5.5Devel
+#  RewriteCond %{REQUEST_URI} !^/phpmyadmin
+#  RewriteCond %{REQUEST_URI} !^/tools
+  RewriteCond %{REQUEST_URI} !^/beck
+  RewriteCond %{REQUEST_URI} !^/kelly
+#  RewriteCond %{REQUEST_URI} !^/trac
+#  RewriteCond %{REQUEST_URI} !^/arethebearshappy
+  RewriteCond %{REQUEST_URI} !^/xd_receiver.htm
+  RewriteCond %{REQUEST_URI} !^/tickets
+  RewriteCond %{REQUEST_URI} !^/audio_player
+  RewriteCond %{REQUEST_URI} !^/collecting
+  RewriteCond %{REQUEST_URI} !^/-
+  RewriteRule ^(.*)$ ncmls5.21/$1 [L,QSA]
 </IfModule>
