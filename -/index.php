@@ -550,7 +550,24 @@ else if(isset($_GET['stats']))  // Display stats
 }
 elseif(isset($_GET['mark_gone']) && isset($_GET['slug']) && strlen(trim($_GET['slug']))) 
 { // Mark a redirection as GONE
-	// TODO
+	$prefix = DB_PREFIX;
+	$slug = $_GET['slug'];
+
+	// Check if slug is in use
+	$stmt = $db->prepare("SELECT url, checksum, custom_url, redir_type FROM {$prefix}urls WHERE BINARY custom_url = BINARY :slug AND custom_url = :slug");
+	$stmt->execute(array('slug'=>$slug));
+	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+	if($row){ // slug exists
+		$result = bcurls_update_slug($row['url'], $row['checksum'], $row['custom_url'], 'gone');
+		if($result !== true) {
+			$error = $insert_result;
+			include('pages/error.php');
+			exit;
+		}
+	}
+	// Redirect to the stats page
+	header('Location:?stats=1');
+	exit();
 }
 else
 {
