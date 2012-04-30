@@ -559,8 +559,10 @@ elseif(isset($_GET['mark_gone']) && isset($_GET['slug']) && strlen(trim($_GET['s
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	if($row){ // slug exists
 		$result = bcurls_update_slug($row['url'], $row['checksum'], $row['custom_url'], 'gone');
-		if($result !== true){
-			// TODO: How to handle failed update?
+		if($result !== true) {
+			$error = $insert_result;
+			include('pages/error.php');
+			exit;
 		}
 	}
 	// Redirect to the stats page
